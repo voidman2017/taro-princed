@@ -1,4 +1,4 @@
-dist/
+packages/**/dist/
 _book
 .idea
 
