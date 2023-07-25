@@ -16,15 +16,15 @@ export default defineConfig(async (merge, { command, mode }) => {
       828: 1.81 / 2
     },
     sourceRoot: 'src',
-    outputRoot: 'dist',
+    outputRoot: 'dist/src',
     plugins: [],
     defineConstants: {
     },
     copy: {
       patterns: [
+        { from: "project.gmuapp.json", to: "dist/project.json" },
       ],
-      options: {
-      }
+      options: {}
     },
     framework: 'vue',
     compiler: 'webpack5',

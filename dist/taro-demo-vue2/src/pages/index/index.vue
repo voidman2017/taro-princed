@@ -1,6 +1,7 @@
 <template>
   <view class="index">
     <text>{{ msg }}</text>
+    <button @tap="clickHandler"> click </button>
   </view>
 </template>
 
@@ -11,6 +12,11 @@ export default {
   data () {
     return {
       msg: 'Hello world!'
+    }
+  },
+  methods:{
+    clickHandler(){
+      this.msg += '!'
     }
   }
 }
