@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import './app.scss'
-
+import Taro from '@tarojs/taro'
+Taro.options.debug = true
 const App = {
   onShow (options) {
     console.log('App onShow.')
