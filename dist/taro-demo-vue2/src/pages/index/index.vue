@@ -1,8 +1,8 @@
 <template>
   <view class="index">
     <text>{{ msg }}</text>
-    <button @click="clickHandler">click</button>
-    <button @click="toDetail">to detail</button>
+    <button @tap="clickHandler">click</button>
+    <button @tap="toDetail">to detail</button>
   </view>
 </template>
 
@@ -21,6 +21,7 @@ export default {
       this.msg += '!'
     },
     toDetail() {
+      console.log('===debug=== toDetail: ', );
       taro.navigateTo({
         url:'/pages/detail/index'
       })
