@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { chalk, REG_VUE, VUE_EXT } from '@tarojs/helper'
 import { DEFAULT_Components } from '@tarojs/runner-utils'
 import { isString, isWebPlatform } from '@tarojs/shared'
@@ -85,6 +86,7 @@ function getVueLoaderPath (): string {
   }
 }
 
+
 function customVueChain (chain, data) {
   const vueLoaderPath = getVueLoaderPath()
 
@@ -129,6 +131,7 @@ function customVueChain (chain, data) {
     // 小程序
     vueLoaderOption = {
       optimizeSSR: false,
+      raw: true,
       transformAssetUrls: {
         video: ['src', 'poster'],
         'live-player': 'src',
@@ -173,6 +176,11 @@ function customVueChain (chain, data) {
     .use('vueLoader')
     .loader(vueLoaderPath)
     .options(vueLoaderOption)
+    .end()
+    .use('myLoader')
+    .loader(require.resolve('./my-loader'))
+
+
 }
 
 function setLoader (chain) {
@@ -201,3 +209,4 @@ function setAlias (chain) {
   chain.resolve.alias
     .set('vue', require.resolve('vue'))
 }
+
