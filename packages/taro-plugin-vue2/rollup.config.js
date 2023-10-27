@@ -40,10 +40,10 @@ const runtimeConfig = {
 
 // loader 入口
 const loaderConfig = {
-  input: path.join(cwd, 'src/my-loader.ts'),
+  input: path.join(cwd, 'src/condition-compiler-loader.ts'),
   output: {
     exports: 'auto',
-    file: path.join(cwd, 'dist/my-loader.js'),
+    file: path.join(cwd, 'dist/condition-compiler-loader.js'),
     format: 'cjs',
     sourcemap: true
   },

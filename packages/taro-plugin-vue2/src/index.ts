@@ -20,6 +20,7 @@ interface OnParseCreateElementArgs {
 
 export default (ctx: IPluginContext) => {
   const { framework } = ctx.initialConfig
+  // ctx.runOpts.options.platform
   if (framework !== 'vue') return
 
   ctx.modifyWebpackChain(({ chain, data }) => {
@@ -177,8 +178,8 @@ function customVueChain (chain, data) {
     .loader(vueLoaderPath)
     .options(vueLoaderOption)
     .end()
-    .use('myLoader')
-    .loader(require.resolve('./my-loader'))
+    .use('conditionCompilerLoader')
+    .loader(require.resolve('./condition-compiler-loader'))
 
 
 }
