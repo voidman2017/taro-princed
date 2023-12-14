@@ -25,6 +25,15 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "taro-demo-vue3 h5",
+      "program": "${workspaceFolder}/packages/taro-cli/bin/taro",
+      "cwd": "${workspaceFolder}/dist/taro-demo-vue3",
+      "args": ["build", "--type", "h5", "--watch"],
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "taro-vue-render/taro-demo-webpack4",
       "program": "${workspaceFolder}/packages/taro-cli/bin/taro",
       "cwd": "${workspaceFolder}/dist/taro-vue-render/taro-demo-webpack4",
