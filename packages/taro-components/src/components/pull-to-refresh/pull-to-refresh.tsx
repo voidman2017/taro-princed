@@ -99,16 +99,18 @@ export class PullToRefresh implements ComponentInterface {
     })
 
     Taro.eventCenter.on('__taroStopPullDownRefresh', ({ successHandler, errorHandler }) => {
-      try {
-        this.triggerPullDownRefresh(false)
-        successHandler({
-          errMsg: 'stopPullDownRefresh: ok'
-        })
-      } catch (e) {
-        errorHandler({
-          errMsg: 'stopPullDownRefresh: fail'
-        })
-      }
+      setTimeout(()=>{
+        try {
+          this.triggerPullDownRefresh(false)
+          successHandler({
+            errMsg: 'stopPullDownRefresh: ok'
+          })
+        } catch (e) {
+          errorHandler({
+            errMsg: 'stopPullDownRefresh: fail'
+          })
+        }
+      })
     })
   }
 
