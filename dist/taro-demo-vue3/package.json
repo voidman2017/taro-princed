@@ -49,6 +49,7 @@
     "@tarojs/runtime": "3.6.20",
     "@tarojs/shared": "3.6.20",
     "@tarojs/taro": "3.6.20",
+    "@tarojs/cli": "3.6.20",
     "@tarojs/plugin-framework-vue3": "3.6.20",
     "vue": "^3.0.0"
   },
