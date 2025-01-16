@@ -22,18 +22,30 @@ const baseConfig: RollupOptions = {
     nodeResolve({
       preferBuiltins: false,
       mainFields: ['browser', 'module', 'jsnext:main', 'main'],
+      extensions: ['.ts', '.js', '.json'],
     }) as InputPluginOption,
     ts({
-      tsconfig: (e) => ({
-        ...e,
+      transpileOnly: true,
+      transpiler: 'typescript',
+      tsconfig: {
         sourceMap: true,
-      }),
+        target: 'ES5',
+        lib: ['ES5', 'DOM'],
+        module: 'ESNext',
+        ignoreDeprecations: '5.0',
+        moduleResolution: 'node',
+        allowSyntheticDefaultImports: true,
+        esModuleInterop: true,
+        strict: true,
+      },
     }),
-    commonjs() as InputPluginOption,
+    commonjs({
+      sourceMap: true,
+    }) as InputPluginOption,
     postcss({
-      // extract: true, Note: 开启需要在 @tarojs/plugin-platform-h5 中的 API 引入样式
       inject: { insertAt: 'top' },
       minimize: true,
+      sourceMap: true,
     }) as InputPluginOption,
   ],
 }

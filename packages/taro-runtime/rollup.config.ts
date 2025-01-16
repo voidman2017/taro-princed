@@ -1,7 +1,7 @@
+import typescript from '@rollup/plugin-typescript'
 import _ from 'lodash'
 import { defineConfig } from 'rollup'
 import externals from 'rollup-plugin-node-externals'
-import ts from 'rollup-plugin-ts'
 
 import type { RollupOptions } from 'rollup'
 
@@ -13,7 +13,10 @@ const baseConfig = {
   },
   plugins: [
     externals(),
-    ts(),
+    typescript({
+      tsconfig: './tsconfig.json',
+      sourceMap: true
+    })
   ]
 }
 
