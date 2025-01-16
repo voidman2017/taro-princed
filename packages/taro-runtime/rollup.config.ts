@@ -1,3 +1,4 @@
+import babel from '@rollup/plugin-babel'
 import typescript from '@rollup/plugin-typescript'
 import _ from 'lodash'
 import { defineConfig } from 'rollup'
@@ -16,6 +17,17 @@ const baseConfig = {
     typescript({
       tsconfig: './tsconfig.json',
       sourceMap: true
+    }),
+    babel({
+      babelHelpers: 'bundled',
+      presets: [
+        ['@babel/preset-env', {
+          targets: {
+            browsers: ['ie >= 11']
+          }
+        }]
+      ],
+      extensions: ['.ts', '.js']
     })
   ]
 }
