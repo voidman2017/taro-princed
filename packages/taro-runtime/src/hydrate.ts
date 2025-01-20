@@ -25,6 +25,7 @@ let componentsAlias
  * it's a vnode traverser and modifier: that's exactly what Taro's doing in here.
  */
 export function hydrate (node: TaroElement | TaroText): MiniData {
+  /* analysis [初始化渲染]: */
   if (!componentsAlias) {
     // 初始化 componentsAlias
     componentsAlias = getComponentsAlias()

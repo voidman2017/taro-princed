@@ -76,6 +76,7 @@ export class TaroRootElement extends TaroElement {
   }
 
   public enqueueUpdate (payload: UpdatePayload): void {
+    /* analysis [初始化渲染]: */
     this.updatePayloads.push(payload)
 
     if (!this.pendingUpdate && this.ctx) {
@@ -103,6 +104,7 @@ export class TaroRootElement extends TaroElement {
         if (path.endsWith(Shortcuts.Childnodes)) {
           resetPaths.add(path)
         }
+        /* analysis [初始化渲染]: */
         data[path] = value
       }
 
@@ -116,6 +118,7 @@ export class TaroRootElement extends TaroElement {
 
         const value = data[path]
         if (isFunction(value)) {
+          /* analysis [初始化渲染]: */
           data[path] = value()
         }
       }

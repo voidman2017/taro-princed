@@ -45,7 +45,7 @@ export class TaroNode extends TaroEventTarget {
       const childNodes = this.childNodes.filter(node => !isComment(node))
       return childNodes.map(hydrate)
     }
-
+    /* analysis [初始化渲染]: */
     this.enqueueUpdate({
       path: `${this._path}.${CHILDNODES}`,
       value: isClean ? cleanChildNodes : rerenderChildNodes
@@ -192,6 +192,7 @@ export class TaroNode extends TaroEventTarget {
         // appendChild
         const isOnlyChild = childNodesLength === 1
         if (isOnlyChild) {
+          /* analysis [初始化渲染]: */
           this.updateChildNodes()
         } else {
           this.enqueueUpdate({
