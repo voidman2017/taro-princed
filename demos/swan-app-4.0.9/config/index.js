@@ -4,7 +4,7 @@ import devConfig from './dev'
 import prodConfig from './prod'
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
-export default defineConfig(async (merge, { command, mode }) => {
+export default defineConfig(async (merge, { _command, _mode }) => {
   const baseConfig = {
     projectName: 'swan-app-4.0.9',
     date: '2025-1-24',
@@ -32,6 +32,7 @@ export default defineConfig(async (merge, { command, mode }) => {
       enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
     },
     mini: {
+      baseLevel: 30,
       postcss: {
         pxtransform: {
           enable: true,

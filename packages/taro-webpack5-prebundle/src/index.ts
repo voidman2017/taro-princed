@@ -125,6 +125,7 @@ export default class TaroPrebundle {
     if (!this.options.enable) return
 
     if (this.platformType === 'web') {
+      // @ts-ignore webpack 版本类型不兼容
       VirtualModule.apply(compiler)
 
       Object.values(this.entry).forEach((item) => {

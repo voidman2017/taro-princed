@@ -41,6 +41,7 @@ export default async function build (appPath: string, rawConfig: IMiniBuildConfi
   return new Promise<Stats | void>((resolve, reject) => {
     if (config.withoutBuild) return
 
+    // @ts-ignore webpack 版本类型不兼容
     const compiler = webpack(webpackConfig)
     const onBuildFinish = config.onBuildFinish
     let prerender: Prerender
@@ -66,6 +67,7 @@ export default async function build (appPath: string, rawConfig: IMiniBuildConfi
       }
 
       if (!isEmpty(config.prerender)) {
+        // @ts-ignore webpack 版本类型不兼容
         prerender = prerender ?? new Prerender(config, webpackConfig, stats, config.template)
         await prerender.render()
       }

@@ -90,6 +90,7 @@ export default class BasePrebundle<T extends IPrebundleConfig = IPrebundleConfig
       }
     } catch (e) {} // eslint-disable-line no-empty
 
+    // @ts-ignore webpack 版本类型不兼容
     this.webpackConfig = this.chain.toConfig()
     createResolve(this.appPath, this.webpackConfig.resolve)
   }

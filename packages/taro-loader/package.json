@@ -30,7 +30,9 @@
   },
   "dependencies": {
     "@tarojs/helper": "workspace:*",
-    "@tarojs/shared": "workspace:*"
+    "@tarojs/shared": "workspace:*",
+    "@types/anymatch": "^1.3.1",
+    "anymatch": "^3.1.3"
   },
   "devDependencies": {
     "@tarojs/taro": "workspace:*",

@@ -2,10 +2,9 @@ import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import { mergeWith } from 'lodash'
 import { defineConfig } from 'rollup'
-import externals from 'rollup-plugin-node-externals'
+import {externals} from 'rollup-plugin-node-externals'
 import postcss from 'rollup-plugin-postcss'
 import ts from 'rollup-plugin-ts'
-
 import type { InputPluginOption, RollupOptions } from 'rollup'
 
 const baseConfig: RollupOptions = {

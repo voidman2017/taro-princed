@@ -33,6 +33,7 @@ export default async function build (appPath: string, rawConfig: IHarmonyBuildCo
   const config = combination.config
 
   return new Promise<Stats>((resolve, reject) => {
+    // @ts-ignore
     const compiler = webpack(webpackConfig)
 
     const onFinish = function (error: Error | null, stats: Stats | null) {

@@ -159,32 +159,32 @@ export class Template extends RecursiveTemplate {
   </block>
 </view>
 <text s-elif="{{item.nn==='${textAlias}'&&(item.st||item.cl)}}" id="{{item.uid||item.sid}}" data-sid="{{item.sid}}" ${this.buildFlattenNodeAttributes(
-      'text'
-    )}>
+  'text'
+)}>
   <block s-for="item.cn trackBy item.sid">
     <block>{{item.v}}</block>
   </block>
 </text>
 <text s-elif="{{item.nn==='${staticTextAlias}'&&(item.st||item.cl)}}" id="{{item.uid||item.sid}}" data-sid="{{item.sid}}" ${this.buildFlattenNodeAttributes(
-      'static-text'
-    )}>
+  'static-text'
+)}>
   <block s-for="item.cn trackBy item.sid">
     <block>{{item.v}}</block>
   </block>
 </text>
 <button s-elif="{{item.nn==='${buttonAlias}'&&(item.st||item.cl)}}" id="{{item.uid||item.sid}}" data-sid="{{item.sid}}" ${this.buildFlattenNodeAttributes(
-      'button'
-    )}>
+  'button'
+)}>
   <block s-for="item.cn trackBy item.sid">
     <template is="{{xs.a(0, item.${Shortcuts.NodeName})}}" data="{{{ i:item }}}" />
   </block>
 </button>
 <input s-elif="{{item.nn==='${inputAlias}'&&(item.st||item.cl)}}" id="{{item.uid||item.sid}}" data-sid="{{item.sid}}" ${this.buildFlattenNodeAttributes(
-      'input'
-    )} />
+  'input'
+)} />
 <swiper s-elif="{{item.nn==='${swiperAlias}'&&(item.st||item.cl)}}" id="{{item.uid||item.sid}}" data-sid="{{item.sid}}" ${this.buildFlattenNodeAttributes(
-      'swiper'
-    )}>
+  'swiper'
+)}>
   <block s-for="xs.f(item.cn) trackBy item.sid">
     <template is="{{xs.a(0, item.${Shortcuts.NodeName})}}" data="{{{ i:item }}}" />
   </block>
@@ -216,8 +216,8 @@ export class Template extends RecursiveTemplate {
   </block>
 </cover-view>
 <cover-image s-elif="{{item.nn==='${coverImageAlias}'}}" id="{{item.uid||item.sid}}" data-sid="{{item.sid}}"  ${this.buildFlattenNodeAttributes(
-      'cover-image'
-    )}></cover-image>
+  'cover-image'
+)}></cover-image>
 <block s-elif="{{item.nn==='${contentAlias}'}}">{{item.v}}</block>
 <block s-else>
   <template is="{{xs.a(0, item.${Shortcuts.NodeName})}}" data="{{{i:item}}}" />
@@ -252,7 +252,9 @@ export class Template extends RecursiveTemplate {
     switch (nodeName) {
       case 'view':
         // fix issue #6015
-        return this.buildFlattenView()
+        return `<block s-for="i.cn trackBy item.sid">
+                  ${this.buildFlattenView()}
+                </block>`
 
       case 'cover-view':
       case 'canvas':

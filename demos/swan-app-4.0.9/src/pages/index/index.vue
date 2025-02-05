@@ -1,6 +1,6 @@
 <template>
   <view class="index">
-    <text>{{ msg }}xxxx</text>
+    <text>{{ msg }}4.0.9</text>
     <button @tap="count++">{{ count }}</button>
     <swiper>
       <swiper-item>
@@ -13,6 +13,25 @@
         <view>3</view>
       </swiper-item>
     </swiper>
+    <view>
+      <view>
+        <view>
+          <view>
+            <view>
+              <view>
+                <view>
+                  <view>
+                    <view>
+                      vvvvvs
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
     <comp1 />
   </view>
 </template>
@@ -26,7 +45,7 @@ export default {
   components: {
     comp1,
   },
-  setup() {
+  setup () {
     const msg = ref('Hello world')
     const count = ref(1)
     return {

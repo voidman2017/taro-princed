@@ -54,7 +54,7 @@ export default async function build (appPath: string, rawConfig: IH5BuildConfig)
   try {
     if (!config.isWatch) {
       if (config.withoutBuild) return
-
+      // @ts-ignore
       const compiler = webpack(webpackConfig)
       prebundle?.postCompilerStart(compiler)
       compiler.hooks.emit.tapAsync('taroBuildDone', async (compilation, callback) => {
@@ -85,28 +85,39 @@ export default async function build (appPath: string, rawConfig: IH5BuildConfig)
         })
       })
     } else {
+      // @ts-ignore
       config.devServer = recursiveMerge(config.devServer || {}, webpackConfig.devServer)
+      // @ts-ignore
       config.output = webpackConfig.output
       const routerConfig = config.router || {}
       const routerMode = routerConfig.mode || 'hash'
       const routerBasename = routerConfig.basename || '/'
+      // @ts-ignore
       webpackConfig.devServer = await getDevServerOptions(appPath, config)
 
       const firstEntry = Object.keys(entry as EntryObject)[0]
       const pathname = combination.isBuildNativeComp ? `/${firstEntry}.html` : '/'
       const devUrl = formatUrl({
+        // @ts-ignore
         protocol: webpackConfig.devServer?.https ? 'https' : 'http',
+        // @ts-ignore
         hostname: formatOpenHost(webpackConfig.devServer?.host),
+        // @ts-ignore
         port: webpackConfig.devServer?.port,
         pathname: routerMode === 'browser' ? routerBasename : pathname
       })
+      // @ts-ignore
       if (typeof webpackConfig.devServer.open === 'undefined' || webpackConfig.devServer.open === true) {
+        // @ts-ignore
         webpackConfig.devServer.open = devUrl
       }
 
+      // @ts-ignore
       if (config.withoutBuild) return
 
+      // @ts-ignore
       const compiler = webpack(webpackConfig)
+      // @ts-ignore
       const server = new WebpackDevServer(webpackConfig.devServer, compiler)
       prebundle?.postCompilerStart(compiler)
       bindDevLogger(compiler, devUrl)

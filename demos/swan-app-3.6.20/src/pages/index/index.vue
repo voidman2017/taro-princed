@@ -13,6 +13,25 @@
         <view>3</view>
       </swiper-item>
     </swiper>
+    <view>
+      <view>
+        <view>
+          <view>
+            <view>
+              <view>
+                <view>
+                  <view>
+                    <view>
+                      2222
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
     <comp1/>
   </view>
 </template>
